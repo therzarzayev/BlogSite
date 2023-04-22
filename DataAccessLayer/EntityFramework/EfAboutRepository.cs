@@ -7,5 +7,6 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfAboutRepository : Repository<About>, IAboutDal
     {
+        
     }
 }

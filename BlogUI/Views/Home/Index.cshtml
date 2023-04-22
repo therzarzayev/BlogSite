@@ -1,21 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using EntityLayer.Concrete;
+@{
+	ViewData["Title"] = "Home Page";
 }
 
 @section Scripts{
 	<script type="text/javascript">
-        $(document).ready(function(){
-            $("#addUser").click(function(){
-                alert("hello")
-            })
-        })
-    </script>
+		$(document).ready(function () {
+			$("#addUser").click(function () {
+				alert("hello")
+			})
+		})
+	</script>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <div class="container">
-        <button class="btn btn-primary" id="addUser">Add user</button>
-        <button class="btn btn-outline-primary">Add user</button>
-    </div>
-</div>

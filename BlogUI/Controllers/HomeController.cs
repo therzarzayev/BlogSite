@@ -1,5 +1,6 @@
 ﻿using BlogUI.Models;
 using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Repositories;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -17,11 +18,9 @@ namespace BlogUI.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var cc = new CategoryManager();
-            var csd = await cc.GetAllCategories();
-            return Json(csd);
+            return View();
         }
 
         public IActionResult Privacy()

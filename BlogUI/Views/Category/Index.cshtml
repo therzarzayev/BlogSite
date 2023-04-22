@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Category>
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<div class="container">
+		<button class="btn btn-primary" id="addUser">Add user</button>
+		<button class="btn btn-outline-primary">Add user</button>
+	</div>
+
+	<table class="table table-dark table-hover mt-5 w-50">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Ad</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<th>@item.Id</th>
+					<td>@item.Name</td>
+					<td>@item.Status</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<ul class="list-group">
+	</ul>
+</div>
+
