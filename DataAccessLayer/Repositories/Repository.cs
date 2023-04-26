@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace DataAccessLayer.Repositories
 {
@@ -52,5 +53,13 @@ namespace DataAccessLayer.Repositories
                 }
             }
         }
-    }
+
+		public async Task<IEnumerable<T>> GetAllFilteredAsync(Expression<Func<T, bool>> filter)
+		{
+			using(var context = new Context())
+            {
+                return await context.Set<T>().Where(filter).ToListAsync();
+            }
+		}
+	}
 }

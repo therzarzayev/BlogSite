@@ -15,7 +15,7 @@ namespace BusinessLayer.Concrete
 			_blogDal = blogDal;
 		}
 
-        public async Task BlogAdd(Blog blog)
+		public async Task BlogAdd(Blog blog)
 		{
 			await _blogDal.AddAsync(blog);
 		}
@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
 		public async Task<IEnumerable<Blog>> GetAllBlogs()
 		{
 			return await _blogDal.GetAllAsync();
+		}
+
+		public async Task<IEnumerable<Blog>> GetAllBlogsWithCategory()
+		{
+			return await _blogDal.GetBlogsWithCategory();
 		}
 
 		public async Task<Blog?> GetBlogById(int id)

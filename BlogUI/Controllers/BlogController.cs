@@ -7,10 +7,21 @@ namespace BlogUI.Controllers
 	public class BlogController : Controller
 	{
 		BlogManager manager = new BlogManager(new EfBlogRepository());
+
+		[Route("")]
+		[Route("{controller}s")]
 		public async Task<IActionResult> Index()
 		{
-			var blogs = await manager.GetAllBlogs();
+			var blogs = await manager.GetAllBlogsWithCategory();
 			return View(blogs);
+		}
+
+		[HttpGet]
+		[Route("{controller}s/{id}")]
+		public async Task<IActionResult> BlogDetail(int id)
+		{
+			var blog = await manager.GetBlogById(id);
+			return View(blog);
 		}
 	}
 }

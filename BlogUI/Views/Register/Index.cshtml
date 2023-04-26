@@ -1,0 +1,87 @@
+﻿@using EntityLayer.Concrete;
+@{
+	ViewData["Title"] = "Qeydiyyat";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@model Writer
+<div class="container">
+	<section class="vh-100">
+		<div class="container py-5 h-75">
+			<div class="row d-flex align-items-center justify-content-center h-100">
+				<div class="col-md-8 col-lg-7 col-xl-6">
+					<img src="~/imgs/draw2.svg"
+	   class="img-fluid" alt="Phone image">
+				</div>
+				<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+					<form method="post" asp-action="index" asp-controller="register">
+						<h2 class="fw-bold mb-4 text-center text-capitalize">Qeydiyyat</h2>
+						<div class="row">
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<input type="text" id="FirstName" name="FirstName" class="form-control form-control-lg" />
+									<label class="form-label" for="FirstName">Ad</label>
+								</div>
+								<span asp-validation-for="FirstName" class="mb-2 mt-1 text-danger"></span>
+							</div>
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<input type="text" id="LastName" name="LastName" class="form-control form-control-lg" />
+									<label class="form-label" for="LastName">Soyad</label>
+								</div>
+								<span asp-validation-for="LastName" class="mb-2 mt-1 text-danger"></span>
+							</div>
+						</div>
+						<!-- Email input -->
+						<div class="mb-4">
+							<div class="form-outline">
+								<input type="text" id="Email" name="Email" class="form-control form-control-lg" />
+								<label class="form-label" for="Email">Email</label>
+							</div>
+							<span asp-validation-for="Email" class="mb-2 mt-1 text-danger"></span>
+						</div>
+						<!-- Password input -->
+						<div class="mb-4">
+							<div class="form-outline">
+								<i class="far fa-eye trailing"></i>
+								<input type="password" id="password" name="Password" class="form-control form-control-lg form-icon-trailing" />
+								<label class="form-label" for="password">Parol</label>
+							</div>
+							<span asp-validation-for="Password" class="mb-2 mt-1 text-danger"></span>
+						</div>
+						<div asp-validation-summary="All">
+
+						</div>
+
+						<div class="form-outline mb-4">
+							<i class="far fa-eye trailing"></i>
+							<input type="password" id="confirm-password" name="confirmPassword" class="form-control form-control-lg form-icon-trailing" />
+							<label class="form-label" for="confirm-password">Təkrar parol</label>
+						</div>
+						<div id="message" class="mb-2 position-relative"></div>
+						<!-- Submit button -->
+						<input value="Qeydiyyat" type="submit" id="submit" class="btn btn-primary btn-lg btn-block">
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@section Scripts{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#confirm-password').on('keyup', function () {
+				var password = $('#password').val();
+				var confirmPassword = $('#confirm-password').val();
+				if (password === confirmPassword) {
+					$('#message').html('Uyğunlaşır').css('color', 'green');
+				} else {
+					$('#message').html('Uyğunlaşmır').css('color', 'red');
+				}
+			});
+			//$('#submit').click(function(e){
+			//	e.preventDefault();
+			//	//swal("Uğurlu!", "Uğurla qeydiyyatdan keçdiniz!", "success");
+			//})
+		});
+	</script>
+}

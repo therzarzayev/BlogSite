@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-	<title>Weblog a Blogging Category Bootstrap responsive WebTemplate | Blog3 :: w3layouts</title>
+	<title>@ViewData["Title"]</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
 	<script>
 		addEventListener("load", function () {
@@ -22,9 +21,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link rel="stylesheet" href="~/lib/mdbootstrap/css/mdb.min.css" />
 	<link rel="stylesheet" href="~/blog/css/single.css">
 	<link href="~/blog/css/style.css" rel='stylesheet' type='text/css' />
-	<link href="~/blog/css/fontawesome-all.css" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-		  rel="stylesheet">
+	<link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,88 +33,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="row justify-content-between">
 				<div class="col-md-4 logo text-left">
 					<a class="navbar-brand" href="index.html">
-						<i class="fab fa-linode"></i> Bloqum
+						Bloqum
 					</a>
 				</div>
-				@await Html.PartialAsync("TopNavBarPartialView")
+				@await Html.PartialAsync("~/Views/Shared/PartialViews/TopNavBarPartialView.cshtml")
 				<div class="col-md-4 log-icons text-end">
 
 					<ul class="social_list1 mt-3">
 
 						<li>
-							<a href="#" class="facebook1 mx-2">
-								<i class="fab fa-facebook-f"></i>
+							<a href="https://www.instagram.com/the.rzarzayev" target="_blank" class="instagram mx-2">
+								<i class="fab fa-instagram"></i>
 
 							</a>
 						</li>
 						<li>
-							<a href="#" class="twitter2">
+							<a href="https://twitter.com/therzarzayev" target="_blank" class="twitter">
 								<i class="fab fa-twitter"></i>
 
 							</a>
 						</li>
 						<li>
-							<a href="#" class="dribble3 mx-2">
-								<i class="fab fa-dribbble"></i>
+							<a href="https://github.com/therzarzayev" target="_blank" class="github mx-2">
+								<i class="fab fa-github"></i>
 							</a>
 						</li>
 						<li>
-							<a href="#" class="pin">
-								<i class="fab fa-pinterest-p"></i>
+							<a href="" target="_blank" class="youtube">
+								<i class="fab fa-youtube"></i>
 							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		@await Html.PartialAsync("NavBarPartialView")
+		@await Html.PartialAsync("~/Views/Shared/PartialViews/NavBarPartialView.cshtml")
 
 	</header>
-	<div class="banner-inner">
-	</div>
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item">
-			<a href="~/blog/index.html">Home</a>
-		</li>
-		<li class="breadcrumb-item active">Blog3</li>
-	</ol>
 
 	<div class="container">
 		@RenderBody()
 	</div>
 	<footer>
-		@await Html.PartialAsync("FooterPartialView")
+		@await Html.PartialAsync("~/Views/Shared/PartialViews/FooterPartialView.cshtml")
 	</footer>
-	<script src="~/blog/js/move-top.js"></script>
-	<script src="~/blog/js/easing.js"></script>
-	<script>
-		jQuery(document).ready(function ($) {
+	<script src="~/lib/fontawesome/js/all.min.js"></script>
+	<script src="~/js/sweetalert.min.js"></script>
+	<script language="JavaScript" type="text/javascript">
+		$(document).ready(function () {
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 900);
 			});
-		});
+		})
 	</script>
-	<script>
-		$(document).ready(function () {
-			/*
-									var defaults = {
-											containerID: 'toTop', // fading element id
-										containerHoverID: 'toTopHover', // fading element hover id
-										scrollSpeed: 1200,
-										easingType: 'linear'
-										};
-									*/
-
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	<a href="#home" class="scroll" id="toTop" style="display: block;">
+	<a href="#" class="scroll" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>

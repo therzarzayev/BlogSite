@@ -11,6 +11,6 @@ namespace EntityLayer.Concrete
         public string? Image1 { get; set; }
         public string? Image2 { get; set; }
         public string? MapLocation { get; set; }
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
     }
 }

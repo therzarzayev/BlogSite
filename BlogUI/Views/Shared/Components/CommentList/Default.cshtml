@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete;
+@model IEnumerable<Comment>
+<div class="container">
+	<h4>Komentlər</h4>
+	<div class="media">
+		@if(Model.Any()){
+			@foreach (var item in Model)
+			{
+				<div class="d-flex flex-start  mt-4">
+					<img class="rounded-circle shadow-1-strong me-3"
+						 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"
+						 height="60" />
+					<div>
+						<h6 class="fw-bold mb-1">@item.UserName</h6>
+						<div class="d-flex align-items-center mb-3">
+							<p class="mb-0">
+								@(((DateTime)item.CreatedDate).ToString("d MMM, yyyy"))
+							</p>
+						</div>
+						<p class="mb-0">
+							@item.Content
+						</p>
+					</div>
+				</div>
+				<hr class="my-2" />
+			}
+		}
+		else
+		{
+			<div class="mt-5 mb-3">
+				<h3 class="opacity-50 text-center mb-1">Bu bloqa aid koment yoxdur</h3>
+				<h5 class="opacity-50 text-center">İlk komenti siz yazın</h5>
+			</div>
+		}
+	</div>
+</div>

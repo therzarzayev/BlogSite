@@ -1,0 +1,154 @@
+﻿@using EntityLayer.Concrete;
+@{
+	ViewData["Title"] = "Blogs";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@model Blog
+<div class="container">
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="single.html">
+									<img src="/blog/images/b1.jpg" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> @(((DateTime)Model.CreatedDate).ToString("d MMM, yyyy"))
+										</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-thumbs-up"></i> 201 Likes
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="far fa-comment"></i> 15 Comments
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<h3>
+							@Model.Title
+						</h3>
+						<p>
+							@Model.Content
+						</p>
+					</div>
+					<div class="comment-top">
+						<vc:comment-list blog-id="@Model.Id"></vc:comment-list>
+					</div>
+					<div class="comment-top">
+						<vc:add-comment></vc:add-comment>
+					</div>
+				</div>
+
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+						<div class="tech-btm">
+							<img src="/blog/images/banner1.jpg" class="img-fluid" alt="">
+						</div>
+						<div class="tech-btm">
+							<h4>Sign up to our newsletter</h4>
+							<form method="post">
+								<input type="email" placeholder="Email" required="">
+								<input type="submit" value="Subscribe">
+							</form>
+						</div>
+						<vc:category-list></vc:category-list>
+						<div class="tech-btm">
+							<h4>Top stories of the week</h4>
+
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="/blog/images/1.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Jan, 2018
+										</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="/blog/images/6.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Feb, 2018
+										</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="single-gd my-5 tech-btm">
+							<h4>Our Progress</h4>
+							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+								<div class="progress-bar progress-bar-striped" style="width: 10%"></div>
+							</div>
+							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+								<div class="progress-bar progress-bar-striped bg-success" style="width: 25%"></div>
+							</div>
+							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+								<div class="progress-bar progress-bar-striped bg-info" style="width: 50%"></div>
+							</div>
+							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Warning striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+								<div class="progress-bar progress-bar-striped bg-warning" style="width: 75%"></div>
+							</div>
+							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+								<div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
+							</div>
+						</div>
+						<div class="single-gd tech-btm">
+							<h4>Recent Post</h4>
+							<div class="blog-grids">
+								<div class="blog-grid-left">
+									<a href="single.html">
+										<img src="/blog/images/b1.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male</a>
+									</h5>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+
+				</aside>
+				<!--//right-->
+			</div>
+		</div>
+	</section>
+</div>
