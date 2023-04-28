@@ -2,8 +2,7 @@
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IWriterDal: IRepository<Writer>
-    {
-
-    }
+	public interface INewsletterDal: IRepository<NewsLetter>
+	{
+	}
 }

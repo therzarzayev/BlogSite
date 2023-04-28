@@ -1,7 +1,5 @@
-﻿@using EntityLayer.Concrete;
-
-@{
-	ViewData["Title"] = "Index";
+﻿@{
+	ViewData["Title"] = "Bloqlar";
 	Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 @model IEnumerable<Blog>
@@ -24,7 +22,7 @@
 											@item.Content.Substring(0,item.Content.Substring(0,160).LastIndexOf(" ")).Trim()...
 										</p>
 										<br />
-										<a asp-controller="blog" asp-action="blogdetail" asp-route-id="@item.Id" class="btn btn-primary read-m">Davamını oxu</a>
+										<a asp-controller="blog" asp-action="blogdetail" asp-route-id="@item.Id" class="btn btn-primary">Davamını oxu</a>
 									</div>
 									<small class="card-footer">
 										<ul class="blog-icons my-4">
@@ -53,6 +51,5 @@
 			</div>
 		</div>
 	</section>
-
 </div>
 

@@ -9,6 +9,7 @@ namespace BusinessLayer.Abstract
 		Task BlogUpdate(Blog blog);
 		Task<IEnumerable<Blog>> GetAllBlogs();
 		Task<IEnumerable<Blog>> GetAllBlogsWithCategory();
-		Task<Blog?> GetBlogById(int id);
+		Task<IEnumerable<Blog>> GetAllBlogsWithWriter(int id);
+        Task<Blog?> GetBlogById(int id);
 	}
 }

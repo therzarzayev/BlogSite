@@ -9,7 +9,7 @@ namespace BlogUI.Controllers
 		BlogManager manager = new BlogManager(new EfBlogRepository());
 
 		[Route("")]
-		[Route("{controller}s")]
+		[Route("{controller}")]
 		public async Task<IActionResult> Index()
 		{
 			var blogs = await manager.GetAllBlogsWithCategory();
@@ -17,7 +17,7 @@ namespace BlogUI.Controllers
 		}
 
 		[HttpGet]
-		[Route("{controller}s/{id}")]
+		[Route("{controller}/{id}")]
 		public async Task<IActionResult> BlogDetail(int id)
 		{
 			var blog = await manager.GetBlogById(id);

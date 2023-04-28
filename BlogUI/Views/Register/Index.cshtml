@@ -1,5 +1,4 @@
-﻿@using EntityLayer.Concrete;
-@{
+﻿@{
 	ViewData["Title"] = "Qeydiyyat";
 	Layout = "~/Views/Shared/UserLayout.cshtml";
 }
@@ -48,9 +47,6 @@
 							</div>
 							<span asp-validation-for="Password" class="mb-2 mt-1 text-danger"></span>
 						</div>
-						<div asp-validation-summary="All">
-
-						</div>
 
 						<div class="form-outline mb-4">
 							<i class="far fa-eye trailing"></i>
@@ -78,10 +74,6 @@
 					$('#message').html('Uyğunlaşmır').css('color', 'red');
 				}
 			});
-			//$('#submit').click(function(e){
-			//	e.preventDefault();
-			//	//swal("Uğurlu!", "Uğurla qeydiyyatdan keçdiniz!", "success");
-			//})
 		});
 	</script>
 }
