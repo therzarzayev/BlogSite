@@ -3,11 +3,13 @@ using BusinessLayer.Validation;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace BlogUI.Controllers
 {
+	[AllowAnonymous]
 	public class RegisterController : Controller
 	{
 		private readonly WriterManager manager = new WriterManager(new EfWriterRepository());

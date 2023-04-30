@@ -65,6 +65,9 @@
 @section Scripts{
 	<script type="text/javascript">
 		$(document).ready(function () {
+			$("#submit").click(function(e){
+				//e.preventDefault();
+			})
 			$('#confirm-password').on('keyup', function () {
 				var password = $('#password').val();
 				var confirmPassword = $('#confirm-password').val();

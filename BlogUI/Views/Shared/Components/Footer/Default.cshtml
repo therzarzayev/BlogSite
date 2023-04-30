@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Blog>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+			<h3>Haqqımızda</h3>
+			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature...</p>
+			<div class="read">
+				<a href="/about" class="btn btn-success btn-lg">Davamını oxu</a>
+			</div>
+		</div>
+		<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+			<div class="tech-btm">
+				<h3>Sonuncu əlavə olunan bloglar</h3>
+				@foreach (var item in Model)
+				{
+					<div class="blog-grids row mb-3">
+						<div class="col-md-5 blog-grid-left">
+							<a href="/blog/@item.Id">
+								<img src="@item.Image" class="card-img-top img-fluid" alt="">
+							</a>
+						</div>
+						<div class="col-md-7 blog-grid-right">
+
+							<h5>
+								<a href="/blog/@item.Id">@item.Title </a>
+							</h5>
+							<div class="sub-meta">
+								<span>
+									<i class="far fa-clock"></i> @(((DateTime)item.CreatedDate).ToString("d MMM, yyyy"))
+								</span>
+							</div>
+						</div>
+
+					</div>
+				}
+			</div>
+		</div>
+		<!-- subscribe -->
+		<div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+			<h2>Bülletenimizə üzv olun</h2>
+			<div class="subscribe-main text-left">
+				<div class="subscribe-form">
+					<form method="post" class="subscribe_form">
+						<input class="form-control" type="email" placeholder="Emailiniz..." required>
+						<button type="submit" class="btn btn-primary submit w-100">Abunə olun</button>
+					</form>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- //subscribe -->
+		</div>
+	</div>
+	<!-- footer -->
+	<div class="footer-cpy text-center">
+		<div class="footer-social">
+			<div class="copyrighttop">
+				<ul>
+					<li class="mx-3">
+						<a class="facebook p-2" href="#">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a class="facebook p-2" href="#">
+							<i class="fab fa-twitter"></i>
+						</a>
+					</li>
+					<li class="mx-3">
+						<a class="facebook p-2" href="#">
+							<i class="fab fa-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a class="facebook p-2" href="#">
+							<i class="fab fa-pinterest-p"></i>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<div class="w3layouts-agile-copyrightbottom">
+			<p>
+				© @DateTime.Now.Year Bloqum. Bütün hüquqlar qorunur | Design by
+				<a href="http://therzarzayev.tech/">therzarzayev</a>
+			</p>
+
+		</div>
+	</div>
+</div>

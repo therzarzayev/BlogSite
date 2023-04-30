@@ -13,6 +13,11 @@ namespace BusinessLayer.Concrete
 			_writerDal = writerDal;
 		}
 
+		public async Task<Writer> GetWriterByEmail(string email)
+		{
+		 	return await _writerDal.GetWriterByEmail(email);
+		}
+
 		public async Task WriterAdd(Writer writer)
 		{
 			await _writerDal.AddAsync(writer);

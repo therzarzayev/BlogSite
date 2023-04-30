@@ -19,7 +19,6 @@
 	<title>@ViewData["Title"]</title>
 	<link rel="icon" type="image/x-icon" href="~/siteicon.ico" />
 	<link rel="stylesheet" href="~/lib/mdbootstrap/css/mdb.min.css" />
-	<link rel="stylesheet" href="~/blog/css/single.css">
 	<link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.css">
 	<link href="~/blog/css/style.css" rel='stylesheet' type='text/css' />
 	<link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet">
@@ -33,7 +32,7 @@
 		<div class="top-bar_sub_w3layouts container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-md-4 logo text-left">
-					<a class="navbar-brand" asp-action="index" asp-controller="blog">
+					<a class="navbar-brand" href="/blog">
 						Bloqum
 					</a>
 				</div>
@@ -76,7 +75,7 @@
 		@RenderBody()
 	</div>
 	<footer>
-		@await Html.PartialAsync("~/Views/Shared/PartialViews/FooterPartialView.cshtml")
+		<vc:footer></vc:footer>
 	</footer>
 	<script src="~/lib/fontawesome/js/all.min.js"></script>
 	<script src="~/lib/sweetalert2/sweetalert2.js"></script>

@@ -378,8 +378,8 @@ h5.mt-0 {
 }
 
 @media screen and (max-width: 600px) {
-    .comment-top input[type="submit"] {
-        width:40%;
+    .comment-bottom input[type="submit"] {
+        width: 40% !important;
     }
 }
 
@@ -392,8 +392,8 @@ h5.mt-0 {
 }
 
 @media screen and (max-width: 414px) {
-    .comment-top input[type="submit"] {
-        width:45%;
+    .comment-bottom input[type="submit"] {
+        width: 100% !important;
     }
 }
 

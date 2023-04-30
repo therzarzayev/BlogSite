@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogUI.Controllers
 {
+	[AllowAnonymous]
 	public class BlogController : Controller
 	{
 		BlogManager manager = new BlogManager(new EfBlogRepository());

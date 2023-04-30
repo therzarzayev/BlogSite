@@ -12,7 +12,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var context = new Context())
             {
-                return await context.Blogs.Include(b => b.Category).ToListAsync();
+                return await context.Blogs.OrderByDescending(x => x.CreatedDate).Include(b => b.Category).ToListAsync();
             }
         }
     }

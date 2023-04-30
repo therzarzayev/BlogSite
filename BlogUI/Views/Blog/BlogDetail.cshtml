@@ -56,45 +56,15 @@
 
 				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
 					<div class="right-blog-info text-left">
-						@await Html.PartialAsync("~/Views/Shared/PartialViews/NewsletterPartial.cshtml")
+						<div class="tech-btm">
+							<img src="~/blog/images/banner1.jpg" class="img-fluid" alt="">
+						</div>
+						<div class="tech-btm">
+							<h4>Bülletenimizə abunə olun</h4>
+							@await Html.PartialAsync("~/Views/Shared/PartialViews/NewsletterPartial.cshtml")
+						</div>
 						<vc:category-list></vc:category-list>
 						@await Component.InvokeAsync("LastBlog",Model.WriterId)
-
-						<div class="single-gd my-5 tech-btm">
-							<h4>Our Progress</h4>
-							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-striped" style="width: 10%"></div>
-							</div>
-							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-striped bg-success" style="width: 25%"></div>
-							</div>
-							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-striped bg-info" style="width: 50%"></div>
-							</div>
-							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Warning striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-striped bg-warning" style="width: 75%"></div>
-							</div>
-							<div class="progress" style="height: 20px;" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
-							</div>
-						</div>
-						<div class="single-gd tech-btm">
-							<h4>Recent Post</h4>
-							<div class="blog-grids">
-								<div class="blog-grid-left">
-									<a href="single.html">
-										<img src="/blog/images/b1.jpg" class="img-fluid" alt="">
-									</a>
-								</div>
-								<div class="blog-grid-right">
-
-									<h5>
-										<a href="single.html">Pellentesque dui, non felis. Maecenas male</a>
-									</h5>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
 					</div>
 
 				</aside>
@@ -110,13 +80,10 @@
 				var regex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 				return regex.test(String(email).toLowerCase());
 			}
-			$("#share").click(function () {
-				alert("df");
-			})
 			$("#subscribe").click(function (e) {
 				e.preventDefault();
 				var mail = document.getElementById("Email").value;
-				if (validateEmail(mail)){
+				if (validateEmail(mail)) {
 					$.ajax({
 						url: "/newsletter/subscribe",
 						type: "POST",

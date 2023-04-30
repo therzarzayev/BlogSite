@@ -1,0 +1,88 @@
+﻿@{
+	ViewData["Title"] = "Əlaqə";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<link href="~/css/contact.css" rel="stylesheet" />
+<section class="main-content-w3layouts-agileits">
+	<h3 class="tittle">Bizimlə əlaqə saxlayın</h3>
+	<div class="contact-map inner-sec">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194473.5251790083!2d49.68980682048577!3d40.39447502284251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1682723492846!5m2!1sen!2saz"
+				class="map" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+	<div class="ad-inf-sec bg-light">
+		<div class="container">
+			<div class="address row">
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-2 address-left text-center">
+							<i class="far fa-map"></i>
+						</div>
+						<div class="col-md-8 address-right text-left">
+							<h6>Ünvan</h6>
+							<p>
+								Bakı, Azərbaycan
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-2 address-left text-center">
+							<i class="far fa-envelope"></i>
+						</div>
+						<div class="col-md-8 address-right text-left">
+							<h6>Email</h6>
+							<p>
+								<a href="mailto:rzayevrza054@@gmail.com">rzayevrza054@gmail.com</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-2 address-left text-center">
+							<i class="fas fa-mobile-alt"></i>
+						</div>
+						<div class="col-md-8 address-right text-left">
+							<h6>Telefon</h6>
+							<p>+994 50 820 3639</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="contact_grid_right">
+			<form method="post" asp-action="index" asp-controller="contact">
+				<div class="row contact_left_grid">
+					<div class="col-md-6 con-left">
+						<div class="form-outline mb-3">
+							<input type="text" id="Name" name="Name" class="form-control form-control-lg" />
+							<label class="form-label" for="Name">Ad</label>
+						</div>
+						<div class="form-outline mb-3">
+							<input type="text" id="Email" name="Email" class="form-control form-control-lg" />
+							<label class="form-label" for="Email">Email</label>
+						</div>
+						<div class="form-outline mb-3">
+							<input type="text" id="Subject" name="Subject" class="form-control form-control-lg" />
+							<label class="form-label" for="Subject">Mövzu</label>
+						</div>
+					</div>
+					<div class="col-md-6 con-right">
+						<div class="form-outline mb-3">
+							<textarea class="form-control" id="Message" name="Message" rows="3"></textarea>
+							<label class="form-label" for="Message">Mesaj</label>
+						</div>
+						<button id="submit" class="w-100 btn btn-primary btn-lg" type="submit">Göndər</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+

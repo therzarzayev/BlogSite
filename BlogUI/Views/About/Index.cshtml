@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewData["Title"] = "Haqqımızda";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@model IEnumerable<About>
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Haqqımızda</h3>
+		<div class="row inner-sec">
+			<!--left-->
+			<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+				@foreach (var item in Model)
+				{
+					<div class="blog-grid-top">
+
+						<div class="blog_info_left_grid">
+							<a href="single.html">
+								<img src="~/blog/images/b5.jpg" class="img-fluid" alt="">
+							</a>
+						</div>
+						<h3>
+							Amet consectetur adipisicing
+						</h3>
+						<p>
+							@item.Detail1
+						</p>
+					</div>
+				}
+			</div>
+			<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+				<div class="right-blog-info text-left">
+					<div class="tech-btm">
+						<img src="~/blog/images/banner1.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="tech-btm">
+						<h4>Bülletenimizə abunə olun</h4>
+						@await Html.PartialAsync("~/Views/Shared/PartialViews/NewsletterPartial.cshtml")
+					</div>
+					<vc:social-media></vc:social-media>
+					<div class="tech-btm">
+						<h4>Sonuncu paylaşılan bloqlar</h4>
+
+						<div class="blog-grids row mb-3">
+							<div class="col-md-5 blog-grid-left">
+								<a href="single.html">
+									<img src="~/blog/images/1.jpg" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> 20 Jan, 2018
+									</span>
+								</div>
+							</div>
+
+						</div>
+						<div class="blog-grids row mb-3">
+							<div class="col-md-5 blog-grid-left">
+								<a href="single.html">
+									<img src="~/blog/images/2.jpg" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> 20 Jan, 2018
+									</span>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+
+			</aside>
+			<!--//right-->
+		</div>
+	</div>
+</section>
+
+
+@section Scripts{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			function validateEmail(email) {
+				var regex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+				return regex.test(String(email).toLowerCase());
+			}
+			$("#subscribe").click(function (e) {
+				e.preventDefault();
+				var mail = document.getElementById("Email").value;
+				if (validateEmail(mail)) {
+					$.ajax({
+						url: "/newsletter/subscribe",
+						type: "POST",
+						data: { mail: mail },
+						success: function (result) {
+							Swal.fire(
+								'Uğurlu!',
+								'Siz bu bülletenə abonə oldunuz!',
+								'success'
+							);
+						},
+						error: function () {
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'Nəsə səhv getdi!',
+							});
+						}
+					});
+				}
+			});
+		});
+	</script>
+}

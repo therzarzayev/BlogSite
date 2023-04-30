@@ -36,25 +36,10 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block">Giriş et</button>
+                        <button type="submit" id="submit" class="btn btn-primary btn-lg btn-block">Giriş et</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 </div>
-
-@section Scripts{
-	<script type="text/javascript">
-        $(document).ready(function () {
-            $("#submit").click(function(){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href="">Why do I have this issue?</a>'
-                })
-            })
-        })
-    </script>
-}

@@ -12,7 +12,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fff;
 }
-
+.hoveruse:hover {
+    color: #3B71CA !important;
+}
     body a {
         text-decoration: none;
         transition: 0.5s all;

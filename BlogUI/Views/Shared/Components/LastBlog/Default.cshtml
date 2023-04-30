@@ -5,18 +5,18 @@
 	{
 		<div class="blog-grids row mb-3">
 			<div class="col-md-5 blog-grid-left">
-				<a href="single.html">
+				<a href="/blog/@item.Id">
 					<img src="@item.Image" class="img-fluid" alt="">
 				</a>
 			</div>
 			<div class="col-md-7 blog-grid-right">
 
 				<h5>
-					<a href="single.html">@item.Title</a>
+					<a href="/blog/@item.Id">@item.Title</a>
 				</h5>
 				<div class="sub-meta">
 					<span>
-						<i class="far fa-clock"></i> @(((DateTime)item.CreatedDate).ToString("d MMM, yyyy")))
+						<i class="far fa-clock"></i> @(((DateTime)item.CreatedDate).ToString("d MMM, yyyy"))
 					</span>
 				</div>
 			</div>
