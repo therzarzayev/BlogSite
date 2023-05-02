@@ -1,0 +1,80 @@
+﻿@{
+	ViewData["Title"] = "Mənim bloqlarım";
+	Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+@model IEnumerable<Blog>
+<div class="container-fluid pt-4 px-4">
+	<div class="col-12">
+		<div class="bg-secondary rounded h-100 p-4">
+			<h6 class="mb-4">Mənim bloqlarım</h6>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Title</th>
+							<th scope="col">Content</th>
+							<th scope="col">ThumbnailImage</th>
+							<th scope="col">CreatedDate</th>
+							<th scope="col">Category</th>
+							<th scope="col">Image</th>
+							<th scope="col">Status</th>
+							<th scope="col">Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							var date = (DateTime)item.CreatedDate;
+							string oDate;
+							TimeSpan timeSince = DateTime.Now - date;
+							int secondsSince = (int)timeSince.TotalSeconds;
+
+							if (secondsSince >= 86400)
+							{
+								oDate = date.ToString("d MMM, yyyy HH:mm");
+							}
+							else
+							{
+								int hoursSince = secondsSince / 3600;
+
+								if (hoursSince != 0)
+								{
+									oDate = $"{hoursSince} saat əvvəl";
+								}
+								else
+								{
+									int minutesSince = secondsSince / 60;
+
+									if (minutesSince != 0)
+									{
+										oDate = $"{minutesSince} dəqiqə əvvəl";
+									}
+									else
+									{
+										oDate = "İndicə";
+									}
+								}
+							}
+							<tr>
+								<td>@item.Title</td>
+								<td>@item.Content.Substring(0,item.Content.Substring(0,20).LastIndexOf(" ")).Trim()...</td>
+								<td>@item.ThumbnailImage</td>
+								<td>@oDate</td>
+								<td>@item.Category.Name</td>
+								<td>@item.Image</td>
+								<td>@item.Status</td>
+								<td>
+									<a href="#" class="btn btn-warning me-2"><i class="fa-solid fa-pen me-2"></i>Redaktə</a>
+									<a href="#" class="btn btn-danger"><i class="fa-solid fa-trash me-2"></i>Sil</a>
+								</td>
+							</tr>
+
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+

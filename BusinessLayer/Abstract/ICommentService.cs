@@ -2,9 +2,8 @@
 
 namespace BusinessLayer.Abstract
 {
-	public interface ICommentService
+	public interface ICommentService: IGService<Comment>
 	{
-		Task CommentAdd(Comment comment);
-		Task<IEnumerable<Comment>> GetAllComments(int id);
+		
 	}
 }

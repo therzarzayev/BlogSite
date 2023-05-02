@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -13,9 +14,34 @@ namespace BusinessLayer.Concrete
 			_contactDal = contactDal;
 		}
 
-		public async Task ContactAdd(Contact contact)
+		public async Task Add(Contact t)
 		{
-			await _contactDal.AddAsync(contact);
+			await _contactDal.AddAsync(t);
+		}
+
+		public async Task<IEnumerable<Contact>> GetAll()
+		{
+			return await _contactDal.GetAllAsync();
+		}
+
+        public Task<IEnumerable<Contact>> GetAllFilteredAsync(Expression<Func<Contact, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Contact?> GetById(int id)
+		{
+			return await _contactDal.GetByIdAsync(id);
+		}
+
+		public async Task Remove(int id)
+		{
+			await _contactDal.DeleteAsync(id);
+		}
+
+		public async Task Update(Contact t)
+		{
+			await _contactDal.UpdateAsync(t);
 		}
 	}
 }

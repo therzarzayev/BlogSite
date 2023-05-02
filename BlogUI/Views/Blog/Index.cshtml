@@ -27,8 +27,41 @@
 									<small class="card-footer">
 										<ul class="blog-icons my-4">
 											<li>
+												@{
+													var date = (DateTime)item.CreatedDate;
+													string oDate;
+													TimeSpan timeSince = DateTime.Now - date;
+													int secondsSince = (int)timeSince.TotalSeconds;
+
+													if (secondsSince >= 86400)
+													{
+														oDate = date.ToString("d MMM, yyyy");
+													}
+													else
+													{
+														int hoursSince = secondsSince / 3600;
+
+														if (hoursSince != 0)
+														{
+															oDate = $"{hoursSince} saat əvvəl";
+														}
+														else
+														{
+															int minutesSince = secondsSince / 60;
+
+															if (minutesSince != 0)
+															{
+																oDate = $"{minutesSince} dəqiqə əvvəl";
+															}
+															else
+															{
+																oDate = "İndicə";
+															}
+														}
+													}
+												}
 												<a href="#">
-													<i class="far fa-calendar-alt"></i> @(((DateTime)item.CreatedDate).ToString("d MMM, yyyy"))
+													<i class="far fa-calendar-alt"></i> @oDate
 												</a>
 											</li>
 											<li class="mx-2">

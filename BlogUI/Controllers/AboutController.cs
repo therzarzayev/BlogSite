@@ -13,7 +13,7 @@ namespace BlogUI.Controllers
 		[Route("/about")]
 		public async Task<IActionResult> Index()
 		{
-			var abouts = await manager.GetAllAbouts();
+			var abouts = await manager.GetAll();
 			var about = abouts.TakeLast(1);
 			return View(about);
 		}

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -13,29 +14,34 @@ namespace BusinessLayer.Concrete
 			_categoryDal = categoryDal;
 		}
 
-		public async Task CategoryAdd(Category category)
+		public async Task Add(Category t)
 		{
-			await _categoryDal.AddAsync(category);
+			await _categoryDal.AddAsync(t);
 		}
 
-		public async Task CategoryRemove(int id)
-		{
-			await _categoryDal.DeleteAsync(id);
-		}
-
-		public async Task CategoryUpdate(Category category)
-		{
-			await _categoryDal.UpdateAsync(category);
-		}
-
-		public async Task<IEnumerable<Category>> GetAllCategories()
+		public async Task<IEnumerable<Category>> GetAll()
 		{
 			return await _categoryDal.GetAllAsync();
 		}
 
-		public async Task<Category?> GetCategoryById(int id)
+        public Task<IEnumerable<Category>> GetAllFilteredAsync(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Category?> GetById(int id)
 		{
 			return await _categoryDal.GetByIdAsync(id);
+		}
+
+		public async Task Remove(int id)
+		{
+			await _categoryDal.DeleteAsync(id);
+		}
+
+		public async Task Update(Category t)
+		{
+			await _categoryDal.UpdateAsync(t);
 		}
 	}
 }

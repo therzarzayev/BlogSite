@@ -3,9 +3,8 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
-	public interface IWriterService
+	public interface IWriterService: IGService<Writer>
 	{
-		Task WriterAdd(Writer writer);
 		Task<Writer> GetWriterByEmail(string email);
 	}
 }

@@ -9,7 +9,7 @@ namespace BlogUI.Controllers
 		CategoryManager manager = new CategoryManager(new EfCategoryRepository());
 		public async Task<IActionResult> Index()
 		{
-			var dsf = await manager.GetAllCategories();
+			var dsf = await manager.GetAll();
 			return View(dsf);
 		}
 	}

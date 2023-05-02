@@ -22,7 +22,7 @@ namespace BlogUI.Controllers
 		{
 			contact.CreatedDate = DateTime.Now;
 			contact.Status = true;
-			await manager.ContactAdd(contact);
+			await manager.Add(contact);
 			return View();
 		}
 	}

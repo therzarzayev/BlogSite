@@ -3,8 +3,8 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
-	public interface INewsletterService
+	public interface INewsletterService: IGService<NewsLetter>
 	{
-		Task AddNewsletter(NewsLetter newsLetter);
+
 	}
 }

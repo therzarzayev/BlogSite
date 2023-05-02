@@ -20,7 +20,7 @@ namespace BlogUI.Controllers
 			if (!string.IsNullOrEmpty(mail))
 			{
 				var subscriber = new NewsLetter { Mail = mail, Status = true };
-				await manager.AddNewsletter(subscriber);
+				await manager.Add(subscriber);
 				return Content("success");
 			}
 			return Content("error");

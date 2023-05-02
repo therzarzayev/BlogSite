@@ -9,7 +9,7 @@ namespace BlogUI.ViewComponents
 		BlogManager manager = new(new EfBlogRepository());
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var blogs = await manager.GetAllBlogs();
+			var blogs = await manager.GetAll();
 			return View(blogs.TakeLast(3));
 		}
 	}

@@ -2,6 +2,7 @@
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -14,9 +15,34 @@ namespace BusinessLayer.Concrete
 			_aboutDal = aboutDal;
 		}
 
-		public async Task<IEnumerable<About>> GetAllAbouts()
+		public Task Add(About t)
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<IEnumerable<About>> GetAll()
 		{
 			return await _aboutDal.GetAllAsync();
+		}
+
+        public Task<IEnumerable<About>> GetAllFilteredAsync(Expression<Func<About, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<About?> GetById(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task Remove(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task Update(About t)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -13,14 +14,39 @@ namespace BusinessLayer.Concrete
 			_writerDal = writerDal;
 		}
 
-		public async Task<Writer> GetWriterByEmail(string email)
+		public async Task Add(Writer t)
 		{
-		 	return await _writerDal.GetWriterByEmail(email);
+			await _writerDal.AddAsync(t);
 		}
 
-		public async Task WriterAdd(Writer writer)
+		public async Task<IEnumerable<Writer>> GetAll()
 		{
-			await _writerDal.AddAsync(writer);
+			return await _writerDal.GetAllAsync();
+		}
+
+        public async Task<IEnumerable<Writer>> GetAllFilteredAsync(Expression<Func<Writer, bool>> filter)
+        {
+			return await _writerDal.GetAllFilteredAsync(filter);
+        }
+
+        public async Task<Writer?> GetById(int id)
+		{
+			return await _writerDal.GetByIdAsync(id);
+		}
+
+		public async Task<Writer> GetWriterByEmail(string email)
+		{
+			return await _writerDal.GetWriterByEmail(email);
+		}
+
+		public async Task Remove(int id)
+		{
+			await _writerDal.DeleteAsync(id);
+		}
+
+		public async Task Update(Writer t)
+		{
+			await _writerDal.UpdateAsync(t);
 		}
 	}
 }

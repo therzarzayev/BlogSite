@@ -2,14 +2,9 @@
 
 namespace BusinessLayer.Abstract
 {
-	public interface IBlogService
+	public interface IBlogService: IGService<Blog>
 	{
-		Task BlogAdd(Blog blog);
-		Task BlogRemove(int id);
-		Task BlogUpdate(Blog blog);
-		Task<IEnumerable<Blog>> GetAllBlogs();
 		Task<IEnumerable<Blog>> GetAllBlogsWithCategory();
 		Task<IEnumerable<Blog>> GetAllBlogsWithWriter(int id);
-        Task<Blog?> GetBlogById(int id);
 	}
 }

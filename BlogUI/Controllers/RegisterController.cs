@@ -28,7 +28,7 @@ namespace BlogUI.Controllers
 			ValidationResult result = wv.Validate(writer);
 			if (result.IsValid)
 			{
-				await manager.WriterAdd(writer);
+				await manager.Add(writer);
 				return RedirectToAction("index", "blog");
 			}
 			else

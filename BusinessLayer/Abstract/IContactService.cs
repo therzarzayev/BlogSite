@@ -2,8 +2,8 @@
 
 namespace BusinessLayer.Abstract
 {
-	public interface IContactService
+	public interface IContactService: IGService<Contact>
 	{
-		Task ContactAdd(Contact contact);
+		
 	}
 }

@@ -2,8 +2,8 @@
 
 namespace BusinessLayer.Abstract
 {
-	public interface IAboutService
+	public interface IAboutService: IGService<About>
 	{
-		Task<IEnumerable<About>> GetAllAbouts();
+
 	}
 }
