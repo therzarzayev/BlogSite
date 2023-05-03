@@ -19,9 +19,9 @@ namespace BusinessLayer.Concrete
 			await _blogDal.AddAsync(t);
 		}
 
-		public async Task Remove(int id)
+		public async Task Remove(Blog t)
 		{
-			await _blogDal.DeleteAsync(id);
+			await _blogDal.DeleteAsync(t);
 		}
 
 		public async Task Update(Blog t)
@@ -39,11 +39,6 @@ namespace BusinessLayer.Concrete
 			return await _blogDal.GetBlogsWithCategory();
 		}
 
-		public async Task<IEnumerable<Blog>> GetAllBlogsWithWriter(int id)
-		{
-			return await _blogDal.GetAllFilteredAsync(x => x.WriterId == id);
-		}
-
 		public async Task<Blog?> GetById(int id)
 		{
 			return await _blogDal.GetByIdAsync(id);
@@ -53,5 +48,10 @@ namespace BusinessLayer.Concrete
         {
 			return await _blogDal.GetAllFilteredAsync(filter);
         }
-    }
+
+		public async Task<IEnumerable<Blog>> GetAllBlogsWithWriter()
+		{
+			return await _blogDal.GetBlogsWithWriter();
+		}
+	}
 }

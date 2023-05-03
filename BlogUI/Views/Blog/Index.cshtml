@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Globalization;
+@{
 	ViewData["Title"] = "Bloqlar";
 	Layout = "~/Views/Shared/UserLayout.cshtml";
 }
@@ -19,7 +20,7 @@
 									<div class="card-body">
 										<h5 class="card-title">@item.Title</h5>
 										<p class="card-text">
-											@item.Content.Substring(0,item.Content.Substring(0,160).LastIndexOf(" ")).Trim()...
+											@item.Content?.Substring(0,item.Content.Substring(0,160).LastIndexOf(" ")).Trim()...
 										</p>
 										<br />
 										<a asp-controller="blog" asp-action="blogdetail" asp-route-id="@item.Id" class="btn btn-primary">Davamını oxu</a>
@@ -28,14 +29,14 @@
 										<ul class="blog-icons my-4">
 											<li>
 												@{
-													var date = (DateTime)item.CreatedDate;
+													var date = (DateTime)item.CreatedDate!;
 													string oDate;
 													TimeSpan timeSince = DateTime.Now - date;
 													int secondsSince = (int)timeSince.TotalSeconds;
 
 													if (secondsSince >= 86400)
 													{
-														oDate = date.ToString("d MMM, yyyy");
+														oDate = date.ToString("d MMM, yyyy", new CultureInfo("az-AZ"));
 													}
 													else
 													{

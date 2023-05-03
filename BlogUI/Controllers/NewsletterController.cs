@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogUI.Controllers
 {
+	[AllowAnonymous]
 	public class NewsletterController : Controller
 	{
 		NewsletterManager manager = new NewsletterManager(new EfNewsletterRepository());
@@ -13,8 +15,9 @@ namespace BlogUI.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
-		[Route("newsletter/subscribe")]
+		[Route("/subscribe")]
 		public async Task<IActionResult> Index(string mail)
 		{
 			if (!string.IsNullOrEmpty(mail))

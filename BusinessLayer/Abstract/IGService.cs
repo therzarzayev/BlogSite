@@ -6,7 +6,7 @@ namespace BusinessLayer.Abstract
 	public interface IGService<T>
 	{
 		Task Add(T t);
-		Task Remove(int id);
+		Task Remove(T t);
 		Task Update(T t);
 		Task<IEnumerable<T>> GetAll();
 		Task<T?> GetById(int id);

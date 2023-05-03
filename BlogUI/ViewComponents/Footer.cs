@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogUI.ViewComponents
@@ -10,7 +11,8 @@ namespace BlogUI.ViewComponents
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
 			var blogs = await manager.GetAll();
-			return View(blogs.TakeLast(3));
+			var last3blog = blogs.OrderByDescending(x => x.CreatedDate).Take(3);
+			return View(last3blog);
 		}
 	}
 }

@@ -18,13 +18,14 @@
 							<th scope="col">Category</th>
 							<th scope="col">Image</th>
 							<th scope="col">Status</th>
-							<th scope="col">Options</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach (var item in Model)
 						{
-							var date = (DateTime)item.CreatedDate;
+							var date = (DateTime)item.CreatedDate!;
 							string oDate;
 							TimeSpan timeSince = DateTime.Now - date;
 							int secondsSince = (int)timeSince.TotalSeconds;
@@ -57,18 +58,24 @@
 							}
 							<tr>
 								<td>@item.Title</td>
-								<td>@item.Content.Substring(0,item.Content.Substring(0,20).LastIndexOf(" ")).Trim()...</td>
+								<td>@item.Content?.Substring(0,item.Content.Substring(0,20).LastIndexOf(" ")).Trim()...</td>
 								<td>@item.ThumbnailImage</td>
 								<td>@oDate</td>
-								<td>@item.Category.Name</td>
+								<td>@item.Category?.Name</td>
 								<td>@item.Image</td>
-								<td>@item.Status</td>
 								<td>
-									<a href="#" class="btn btn-warning me-2"><i class="fa-solid fa-pen me-2"></i>Redaktə</a>
-									<a href="#" class="btn btn-danger"><i class="fa-solid fa-trash me-2"></i>Sil</a>
+									@if ((bool)item.Status!)
+									{
+										<span class="badge badge-pill bg-success">Aktiv</span>
+									}
+									else
+									{
+										<span class="badge badge-pill bg-danger">Passiv</span>
+									}
 								</td>
+								<td><a href="/blog/update/@item.Id" class="btn btn-warning me-2 d-flex align-items-center"><i class="fa-solid fa-pen me-2"></i>Redaktə</a></td>
+								<td><a href="#" class="btn btn-danger d-flex align-items-center" @*onclick="deleteBlog(@item.Id);"*@><i class="fa-solid fa-trash me-2"></i>Sil</a></td>
 							</tr>
-
 						}
 					</tbody>
 				</table>
@@ -77,4 +84,58 @@
 	</div>
 </div>
 
+@section Scripts{
+	<script type="text/javascript">
+		function deleteBlog(id) {
+
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: 'btn btn-success',
+					cancelButton: 'btn btn-danger'
+				},
+				buttonsStyling: false
+			})
+
+			swalWithBootstrapButtons.fire({
+				title: 'Silmək istədiyinizdən əminsiniz?',
+				text: "",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Bəli, sil!',
+				cancelButtonText: 'Xeyr, ləğv et!',
+				reverseButtons: true
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						url: "/blog/delete",
+						type: "POST",
+						data: { Id: id },
+						success: function (result) {
+							swalWithBootstrapButtons.fire(
+								'Uğurlu!',
+								'Bloq silindi.',
+								'success'
+							)
+						},
+						error: function () {
+							swalWithBootstrapButtons.fire(
+								'Opps. Bloq silinə bilmədi',
+								'',
+								'error'
+							)
+						}
+					});
+				} else if (
+					result.dismiss === Swal.DismissReason.cancel
+				) {
+					swalWithBootstrapButtons.fire(
+						'Əməliyyat ləğv edildi',
+						'',
+						'error'
+					)
+				}
+			})
+		}
+	</script>
+}
 

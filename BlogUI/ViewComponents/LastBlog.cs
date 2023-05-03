@@ -9,8 +9,9 @@ namespace BlogUI.ViewComponents
 		BlogManager manager = new BlogManager(new EfBlogRepository());
 		public async Task<IViewComponentResult> InvokeAsync(int writerId)
 		{
-			var blogs = await manager.GetAllBlogsWithWriter(writerId);
-			return View(blogs.Take(2));
+			var blogs = await manager.GetAll();
+			var last2blog = blogs.OrderByDescending(x => x.CreatedDate).Where(x => x.WriterId == writerId).Take(2);
+			return View(last2blog);
 		}
 	}
 }

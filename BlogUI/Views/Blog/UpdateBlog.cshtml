@@ -1,51 +1,44 @@
-﻿@{
-	ViewData["Title"] = "Yeni bloq";
-	Layout = "~/Views/Shared/WriterLayout.cshtml";
+﻿
+@{
+    ViewData["Title"] = "Redaktə";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
+
 @model Blog
 <div class="container-fluid pt-4 px-4">
 	<div class="col-sm-12 col-xl-12">
 		<div class="bg-secondary rounded h-100 p-4">
-			<form method="post">
+			<form method="post" action="/blog/update/@Model.Id">
 				<div>
-					<input type="text" class="form-control p-2" placeholder="Mövzu" name="Title">
+					<input type="text" class="form-control p-2" placeholder="Mövzu" name="Title" value="@Model.Title">
 				</div>
 				<span asp-validation-for="Title" class="mb-2 mt-1 text-danger"></span>
 				<div class="mt-3">
 					<label for="formFile" class="form-label">Kiçik şəkil</label>
-					<input class="form-control bg-dark" name="ThumbnailImage" type="file" id="formFile">
+					<input class="form-control bg-dark" name="ThumbnailImage" type="file" id="formFile" value="@Model.ThumbnailImage">
 				</div>
 				<span asp-validation-for="ThumbnailImage" class="mb-2 mt-1 text-danger"></span>
 				<div class="mt-3">
 					<label for="formFile1" class="form-label">Bloq şəkil</label>
-					<input class="form-control bg-dark" name="Image" type="file" id="formFile1">
+					<input class="form-control bg-dark" name="Image" type="file" id="formFile1" value="@Model.Image">
 				</div>
 				<span asp-validation-for="Image" class="mb-2 mt-1 text-danger"></span>
+				
 				<div class="mt-3">
 					<select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select mb-3">
-						<option selected disabled>Kateqoriya seçin</option>
 					</select>
 				</div>
 				<span asp-validation-for="CategoryId" class="mb-2 mt-1 text-danger"></span>
+				
 				<div class="mt-3">
-					<textarea class="form-control" rows="10" name="Content" placeholder="Məzmun" style="height: 150px;"></textarea>
+					<textarea class="form-control" rows="10" name="Content" placeholder="Məzmun" style="height: 150px;">@Model.Content</textarea>
 				</div>
 				<span asp-validation-for="Content" class="mb-2 mt-1 text-danger"></span>
 				<div>
-					<input type="submit" id="submit-btn" class="btn btn-primary px-5 mt-3" value="Paylaş" />
+					<button type="submit" class="btn btn-primary px-5 mt-3">Redaktə</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-
-@section Scripts{
-	<script>
-		$(document).ready(function(){
-			$("#submit-btn").click(function(e){
-
-			})
-		});
-	</script>
-}
 

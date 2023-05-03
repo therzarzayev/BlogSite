@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 			throw new NotImplementedException();
 		}
 
-		public Task Remove(int id)
+		public Task Remove(About t)
 		{
 			throw new NotImplementedException();
 		}

@@ -33,9 +33,9 @@ namespace BusinessLayer.Concrete
 			return await _commentDal.GetByIdAsync(id);
 		}
 
-		public async Task Remove(int id)
+		public async Task Remove(Comment t)
 		{
-			await _commentDal.DeleteAsync(id);
+			await _commentDal.DeleteAsync(t);
 		}
 
 		public async Task Update(Comment t)

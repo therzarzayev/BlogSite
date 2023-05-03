@@ -34,9 +34,9 @@ namespace BusinessLayer.Concrete
 			return await _contactDal.GetByIdAsync(id);
 		}
 
-		public async Task Remove(int id)
+		public async Task Remove(Contact t)
 		{
-			await _contactDal.DeleteAsync(id);
+			await _contactDal.DeleteAsync(t);
 		}
 
 		public async Task Update(Contact t)

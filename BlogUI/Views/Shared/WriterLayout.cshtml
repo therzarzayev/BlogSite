@@ -17,7 +17,7 @@
 	<!-- Google Web Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 	<!-- Icon Font Stylesheet -->
 	<link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
@@ -30,6 +30,7 @@
 	<!-- Customized Bootstrap Stylesheet -->
 	<link href="~/admin/css/bootstrap.min.css" rel="stylesheet">
 
+	<link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.css">
 	<!-- Template Stylesheet -->
 	<link href="~/admin/css/style.css" rel="stylesheet">
 </head>
@@ -89,6 +90,7 @@
 	</div>
 
 	<!-- JavaScript Libraries -->
+	<script src="~/lib/sweetalert2/sweetalert2.js"></script>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/admin/lib/chart/chart.min.js"></script>
@@ -101,6 +103,7 @@
 
 	<!-- Template Javascript -->
 	<script src="~/admin/js/main.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

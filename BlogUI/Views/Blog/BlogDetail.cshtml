@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Globalization;
+@{
 	ViewData["Title"] = "Bloq";
 	Layout = "~/Views/Shared/UserLayout.cshtml";
 }
@@ -21,7 +22,7 @@
 								<ul>
 									<li>
 										<a href="#">
-											<i class="far fa-calendar-alt"></i> @(((DateTime)Model.CreatedDate).ToString("d MMM, yyyy"))
+											<i class="far fa-calendar-alt"></i> @(((DateTime)Model.CreatedDate).ToString("d MMM, yyyy", new CultureInfo("az-AZ")))
 										</a>
 									</li>
 									<li class="mx-2">
@@ -85,7 +86,7 @@
 				var mail = document.getElementById("Email").value;
 				if (validateEmail(mail)) {
 					$.ajax({
-						url: "/newsletter/subscribe",
+						url: "/subscribe",
 						type: "POST",
 						data: { mail: mail },
 						success: function (result) {

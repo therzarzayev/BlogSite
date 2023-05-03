@@ -39,9 +39,9 @@ namespace BusinessLayer.Concrete
 			return await _writerDal.GetWriterByEmail(email);
 		}
 
-		public async Task Remove(int id)
+		public async Task Remove(Writer t)
 		{
-			await _writerDal.DeleteAsync(id);
+			await _writerDal.DeleteAsync(t);
 		}
 
 		public async Task Update(Writer t)
