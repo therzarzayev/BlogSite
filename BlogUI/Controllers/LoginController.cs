@@ -15,13 +15,13 @@ namespace BlogUI.Controllers
 	{
 		WriterManager manager = new(new EfWriterRepository());
 		[HttpGet]
-		[Route("/login")]
+		[Route("/auth/login")]
 		public IActionResult Index()
 		{
 			return View();
 		}
 		[HttpPost]
-		[Route("/login")]
+		[Route("/auth/login")]
 		public async Task<IActionResult> Index(Writer writer)
 		{
 			LoginValidator lv = new();

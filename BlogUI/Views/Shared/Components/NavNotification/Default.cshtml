@@ -1,17 +1,23 @@
-﻿<div class="nav-item dropdown">
+﻿@using System.Globalization;
+@model IEnumerable<Notification>
+<div class="nav-item dropdown">
 	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-		<i class="fa fa-bell me-lg-2"></i>
+		<i class="fa fa-bell me-lg-2">
+			<span class="badge rounded-pill badge-notification bg-danger">1</span>
+		</i>
 		<span class="d-none d-lg-inline-flex">Bildirişlər</span>
 	</a>
 	<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-		@{
-			DateTime date = new DateTime(2023, 5, 1, 19, 11, 0);
+		@foreach (var item in Model)
+		{
+			var date = (DateTime)item.Date!;
+			string oDate;
 			TimeSpan timeSince = DateTime.Now - date;
 			int secondsSince = (int)timeSince.TotalSeconds;
 
 			if (secondsSince >= 86400)
 			{
-				Console.WriteLine(date.ToString("s MMM, yyyy"));
+				oDate = date.ToString("d MMM, yyyy", new CultureInfo("az-AZ"));
 			}
 			else
 			{
@@ -19,7 +25,7 @@
 
 				if (hoursSince != 0)
 				{
-					Console.WriteLine($"{hoursSince} saat əvvəl");
+					oDate = $"{hoursSince} saat əvvəl";
 				}
 				else
 				{
@@ -27,20 +33,20 @@
 
 					if (minutesSince != 0)
 					{
-						Console.WriteLine($"{minutesSince} dəqiqə əvvəl");
+						oDate = $"{minutesSince} dəqiqə əvvəl";
 					}
 					else
 					{
-						Console.WriteLine($"İndicə");
+						oDate = "İndicə";
 					}
 				}
 			}
+			<a href="#" class="dropdown-item">
+				<h6 class="fw-normal mb-0">@item.Details</h6>
+				<small>@oDate</small>
+			</a>
+			<hr class="dropdown-divider">
 		}
-		<a href="#" class="dropdown-item">
-			<h6 class="fw-normal mb-0">Profile updated</h6>
-			<small>15 minutes ago</small>
-		</a>
-		<hr class="dropdown-divider">
-		<a href="/writer/notifications" class="dropdown-item text-center">Bütün bildirişləri gör</a>
+		<a href="/notifications" class="dropdown-item text-center">Bütün bildirişləri gör</a>	
 	</div>
 </div>

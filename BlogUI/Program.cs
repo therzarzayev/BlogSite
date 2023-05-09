@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
 {
-	x.LoginPath = "/login";
+	x.LoginPath = "/auth/login";
 });
 
 builder.Services.AddControllersWithViews();

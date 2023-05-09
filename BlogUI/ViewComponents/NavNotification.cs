@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlogUI.ViewComponents
 {
 	public class NavNotification:ViewComponent
 	{
-		public IViewComponentResult Invoke()
+		NotificationManager manager = new(new EfNotificationRepository());
+		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View();
+			
+			
+			var notifications = await manager.GetAll();
+			return View(notifications);
 		}
 	}
 }

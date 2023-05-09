@@ -6,5 +6,6 @@ namespace BusinessLayer.Abstract
 	{
 		Task<IEnumerable<Blog>> GetAllBlogsWithCategory();
 		Task<IEnumerable<Blog>> GetAllBlogsWithWriter();
-	}
+		Task<IEnumerable<Blog>> GetAllBlogsWithWriterCategory();
+    }
 }

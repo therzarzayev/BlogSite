@@ -6,5 +6,6 @@ namespace DataAccessLayer.Abstract
     {
         Task<IEnumerable<Blog>> GetBlogsWithCategory();
         Task<IEnumerable<Blog>> GetBlogsWithWriter();
-	}
+        Task<IEnumerable<Blog>> GetBlogsWithWriterCategory();
+    }
 }

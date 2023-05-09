@@ -16,7 +16,7 @@ namespace BlogUI.Controllers
 		BlogManager manager = new BlogManager(new EfBlogRepository());
         [Route("")]
         [Route("/blog")]
-        public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index()
         {
             var blogs = await manager.GetAllBlogsWithCategory();
             return View(blogs);

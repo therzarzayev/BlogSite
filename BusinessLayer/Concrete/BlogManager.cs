@@ -53,5 +53,10 @@ namespace BusinessLayer.Concrete
 		{
 			return await _blogDal.GetBlogsWithWriter();
 		}
-	}
+
+        public async Task<IEnumerable<Blog>> GetAllBlogsWithWriterCategory()
+        {
+            return await _blogDal.GetBlogsWithWriterCategory();
+        }
+    }
 }

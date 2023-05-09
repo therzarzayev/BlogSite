@@ -14,14 +14,14 @@ namespace BlogUI.Controllers
 	{
 		private readonly WriterManager manager = new WriterManager(new EfWriterRepository());
 		[HttpGet]
-		[Route("/register")]
+		[Route("/auth/register")]
 		public IActionResult Index()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		[Route("/register")]
+		[Route("/auth/register")]
 		public async Task<IActionResult> Index(Writer writer)
 		{
 			WriterValidator wv = new WriterValidator();

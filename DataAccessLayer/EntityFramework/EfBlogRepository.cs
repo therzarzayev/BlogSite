@@ -23,5 +23,13 @@ namespace DataAccessLayer.EntityFramework
 				return await context.Blogs.OrderByDescending(x => x.CreatedDate).Include(b => b.Writer).ToListAsync();
 			}
 		}
-	}
+
+        public async Task<IEnumerable<Blog>> GetBlogsWithWriterCategory()
+        {
+            using (var context = new Context())
+            {
+                return await context.Blogs.OrderByDescending(x => x.CreatedDate).Include(b => b.Writer).Include(b => b.Category).ToListAsync();
+            } 
+        }
+    }
 }
